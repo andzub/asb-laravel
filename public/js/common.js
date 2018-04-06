@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+	// переключатель языков
+	var location = window.location.href;
+	if(location.match(/en/i)){
+		$('.en').addClass('lang-active');
+		$('.ru').removeClass('lang-active');
+	}
+
 	$('.serviceContent__readMore').click(function() {
 			$(this).next('.serviceContent__hidden').slideDown(600);
 	});
@@ -27,13 +34,6 @@ $(document).ready(function() {
         }
     });
 
-	//Цели для Яндекс.Метрики и Google Analytics
-	$(".count_element").on("click", (function() {
-		ga("send", "event", "goal", "goal");
-		yaCounterXXXXXXXX.reachGoal("goal");
-		return true;
-	}));
-
 	//Stellar - Parallax Plugin
 	//Документация: https://github.com/markdalgleish/stellar.js
 	//HTML: <div class="parallax" data-stellar-background-ratio="0.5"></div>
@@ -45,8 +45,8 @@ $(document).ready(function() {
 	//equalheight - одинаковая высота колонок
 	//Пример списка элементов:
 	//var eqElement = ".cat_container > div, .home_news > div"
-	var eqElement = ".element"
-	$(window).load(function(){equalheight(eqElement);}).resize(function(){equalheight(eqElement);});
+	// var eqElement = ".element"
+	// $(window).load(function(){equalheight(eqElement);}).resize(function(){equalheight(eqElement);});
 
 	//Masked Input Plugin
 	//Документация: http://digitalbush.com/projects/masked-input-plugin/
@@ -55,29 +55,29 @@ $(document).ready(function() {
 	//Таймер обратного отсчета
 	//Документация: http://keith-wood.name/countdown.html
 	//<div class="countdown" date-time="2015-01-07"></div>
-	var austDay = new Date($(".countdown").attr("date-time"));
-	$(".countdown").countdown({until: austDay, format: 'yowdHMS'});
+	// var austDay = new Date($(".countdown").attr("date-time"));
+	// $(".countdown").countdown({until: austDay, format: 'yowdHMS'});
 
 	//Попап менеджер FancyBox
 	//Документация: http://fancybox.net/howto
 	//<a class="fancybox"><img src="image.jpg" /></a>
 	//<a class="fancybox" data-fancybox-group="group"><img src="image.jpg" /></a>
-	$(".fancybox").fancybox();
+	// $(".fancybox").fancybox();
 
 	//Навигация по Landing Page
 	//$(".top_mnu") - это верхняя панель со ссылками.
 	//Ссылки вида <a href="#contacts">Контакты</a>
-	$(".top_mnu").navigation();
+	// $(".top_mnu").navigation();
 
 	//Добавляет классы дочерним блокам .block для анимации
 	//Документация: http://imakewebthings.com/jquery-waypoints/
-	$(".block").waypoint(function(direction) {
-		if (direction === "down") {
-			$(".class").addClass("active");
-		} else if (direction === "up") {
-			$(".class").removeClass("deactive");
-		};
-	}, {offset: 100});
+	// $(".block").waypoint(function(direction) {
+	// 	if (direction === "down") {
+	// 		$(".class").addClass("active");
+	// 	} else if (direction === "up") {
+	// 		$(".class").removeClass("deactive");
+	// 	};
+	// }, {offset: 100});
 
 	//Плавный скролл до блока .div по клику на .scroll
 	//Документация: https://github.com/flesler/jquery.scrollTo
@@ -96,38 +96,38 @@ $(document).ready(function() {
 
 	//Каруселька
 	//Документация: http://owlgraphic.com/owlcarousel/
-	function carousel_1() {
-		var owl = $(".carousel");
-		owl.owlCarousel({
-			items : 1,
-			loop : true,
-			autoHeight : true,
-			dots : true,
-			singleItem : true
-		});
-		owl.on("mousewheel", ".owl-wrapper", function (e) {
-			if (e.deltaY > 0) {
-				owl.trigger("owl.prev");
-			} else {
-				owl.trigger("owl.next");
-			}
-			e.preventDefault();
-		});
-		$(".next_button").click(function() {
-			owl.trigger("owl.next");
-		});
-		$(".prev_button").click(function() {
-			owl.trigger("owl.prev");
-		});
-		owl.on("resized.owl.carousel", function(event) {
-			var $this = $(this);
-			$this.find(".owl-height").css("height", $this.find(".owl-item.active").height());
-		});
-		setTimeout(function() {
-			owl.find(".owl-height").css("height", owl.find(".owl-item.active").height());
-		}, 5000);
-	};
-	carousel_1();
+	// function carousel_1() {
+	// 	var owl = $(".carousel");
+	// 	owl.owlCarousel({
+	// 		items : 1,
+	// 		loop : true,
+	// 		autoHeight : true,
+	// 		dots : true,
+	// 		singleItem : true
+	// 	});
+	// 	owl.on("mousewheel", ".owl-wrapper", function (e) {
+	// 		if (e.deltaY > 0) {
+	// 			owl.trigger("owl.prev");
+	// 		} else {
+	// 			owl.trigger("owl.next");
+	// 		}
+	// 		e.preventDefault();
+	// 	});
+	// 	$(".next_button").click(function() {
+	// 		owl.trigger("owl.next");
+	// 	});
+	// 	$(".prev_button").click(function() {
+	// 		owl.trigger("owl.prev");
+	// 	});
+	// 	owl.on("resized.owl.carousel", function(event) {
+	// 		var $this = $(this);
+	// 		$this.find(".owl-height").css("height", $this.find(".owl-item.active").height());
+	// 	});
+	// 	setTimeout(function() {
+	// 		owl.find(".owl-height").css("height", owl.find(".owl-item.active").height());
+	// 	}, 5000);
+	// };
+	// carousel_1();
 
 	//Кнопка "Наверх"
 	//Документация:
