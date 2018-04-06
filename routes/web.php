@@ -18,6 +18,7 @@ Route::group(['prefix' => App\Http\Middleware\LocaleMiddleware::getLocale()], fu
     Route::get('/services', 'PagesController@services');
     Route::get('/partner', 'PagesController@partner');
     Route::get('/contacts', 'PagesController@contacts');
+    Route::get('/services/{id}', 'PagesController@show')->name('servicesShow');
 
 });
 

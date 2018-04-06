@@ -30,4 +30,11 @@ class PagesController extends Controller
     public function contacts(){
         return view('contacts');
     }
+
+    public function show($id){
+
+        $string = substr($id, 0, 1);
+        
+        return view("pages.services$string");
+    }
 }

@@ -3,21 +3,22 @@
 
 <head>
     @include('inc.head')
-    <title>@lang('ourwork.title-head')</title>
+    <title>@lang('service.title-head')</title>
 </head>
 
 <body>
-    
+    {{-- header --}}
     @include('inc.header_pages')
 
     <main id="content">
-		<div class="contentContainer">
-			<h2 class="aboutContent__title">@lang('ourwork.title-page')</h2>
-		</div>
-	</main>
+        {{-- content --}}
+        @yield('content')
+    </main>
 
+    {{-- footer --}}
     @include('inc.footer')
     @include('inc.script')
+
 </body>
 
 </html>
